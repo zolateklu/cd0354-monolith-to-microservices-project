@@ -1,7 +1,7 @@
 version: "3"
 services:
   reverseproxy:
-    image: reverseproxy
+    image: reverseproxy:v5d
     ports:
       - 8080:8080
     restart: always
