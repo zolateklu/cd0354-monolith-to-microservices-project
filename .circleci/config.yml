@@ -26,7 +26,7 @@ jobs:
             docker tag udagram-api-user zolateklu/udagram-api-user:v5d
             
             docker build -t udagram-frontend ./udagram-frontend
-            docker tag udagram-frontend zolateklu/udagram-frontend:v5d
+            docker tag udagram-frontend zolateklu/udagram-frontend:local
             docker build -t udagram-reverseproxy ./udagram-reverseproxy
             docker tag udagram-reverseproxy zolateklu/udagram-reverseproxy:v5d
             echo "-------- All images succesfully built----------"
@@ -36,7 +36,7 @@ jobs:
             docker push zolateklu/udagram-api-feed:v5d
             docker push zolateklu/udagram-api-user:v5d
             docker push zolateklu/udagram-frontend:v5d
-            docker push zolateklu/udagram-reverseproxy:v5d
+            docker push zolateklu/udagram-reverseproxy:local
 workflows:
   default:
     jobs:
