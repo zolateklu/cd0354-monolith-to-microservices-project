@@ -35,8 +35,8 @@ jobs:
             echo "-------------- Pushing images to dockerhub-------"
             docker push zolateklu/udagram-api-feed:v5d
             docker push zolateklu/udagram-api-user:v5d
-            docker push zolateklu/udagram-frontend:v5d
-            docker push zolateklu/udagram-reverseproxy:local
+            docker push zolateklu/udagram-frontend:local
+            docker push zolateklu/udagram-reverseproxy:v5d
 workflows:
   default:
     jobs:
