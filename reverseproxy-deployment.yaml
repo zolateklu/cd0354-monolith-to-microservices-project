@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: reverseproxy
   labels:
+    service: reverseproxy
     app: reverseproxy
 spec:
   replicas: 1
@@ -25,13 +26,6 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "500m"
-        envFrom:
-          - secretRef: 
-              name: env-secret
-          - configMapRef:
-              name: env-config
-          -  secretRef: 
-              name: aws-secret
         ports:
-        - containerPort: 80
+        - containerPort: 8080
       restartPolicy: Always

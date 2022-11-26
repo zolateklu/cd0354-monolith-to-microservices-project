@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: backend-user
   labels:
+    service: backend-user
     app: backend-user
 spec:
   replicas: 1
@@ -15,23 +16,66 @@ spec:
         app: backend-user
     spec:
       containers:
-      - name: udagram-api-user
-        image: zolateklu/udagram-api-user:V5d
+      - name: backend-user
+        image: zolateklu/udagram-api-user:v5d
         imagePullPolicy: Always
         resources: 
           requests:
-            memory: "128Mi"
+            memory: "64Mi"
             cpu: "250m"
           limits:
             memory: "1024Mi"
             cpu: "500m"
-        envFrom:
-          - secretRef: 
-              name: env-secret
-          - configMapRef:
-              name: env-config
-          -  secretRef: 
-              name: aws-secret
         ports:
         - containerPort: 8080
-      restartPolicy: Always
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_USERNAME 
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_PASSWORD 
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_DB 
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_HOST
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: env-configmap
+              key: AWS_REGION 
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: env-configmap
+              key: AWS_BUCKET
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: env-configmap
+              key: AWS_PROFILE
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: env-configmap
+              key: JWT_SECRET
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: AWS_ACCESS_KEY_ID 
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-secret
+              key: AWS_SECRET_ACCESS_KEY
