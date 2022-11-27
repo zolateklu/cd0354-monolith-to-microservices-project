@@ -17,11 +17,11 @@ spec:
     spec:
       containers:
       - name: backend-feed
-        image: zolateklu/udagram-api-feed:v5d
+        image: zolateklu/udagram-api-feed:v7d
         imagePullPolicy: Always
         resources: 
           requests:
-            memory: "100Mi"
+            memory: "500Mi"
             cpu: "250m"
           limits:
             memory: "1024Mi"
