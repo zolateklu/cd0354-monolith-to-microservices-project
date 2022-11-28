@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend-feed
-        image: zolateklu/udagram-api-feed:v7d
+        image: zolateklu/udagram-api-feed:v8d
         imagePullPolicy: Always
         resources: 
           requests:
