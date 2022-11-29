@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: udagram-reverseproxy
-        image: zolateklu/udagram-reverseproxy:v11d
+        image: zolateklu/udagram-reverseproxy:v12d
         imagePullPolicy: Always
         resources: 
           requests:

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend-user
-        image: zolateklu/udagram-api-user:v9d
+        image: zolateklu/udagram-api-user:v10d
         imagePullPolicy: Always
         resources: 
           requests:

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: udagram-frontend
-        image: zolateklu/udagram-frontend:v9d
+        image: zolateklu/udagram-frontend:v10d
         imagePullPolicy: Always
         resources: 
           requests:
