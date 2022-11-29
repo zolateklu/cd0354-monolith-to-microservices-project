@@ -28,7 +28,7 @@ jobs:
             docker build -t udagram-frontend ./udagram-frontend
             docker tag udagram-frontend zolateklu/udagram-frontend:v9d
             docker build -t udagram-reverseproxy ./udagram-reverseproxy
-            docker tag udagram-reverseproxy zolateklu/udagram-reverseproxy:v9d
+            docker tag udagram-reverseproxy zolateklu/udagram-reverseproxy:v10d
             echo "-------- All images succesfully built----------"
             echo " ------- login in to hub--------"
             docker login -u zolateklu -p $DOCKERPASS
@@ -36,7 +36,7 @@ jobs:
             docker push zolateklu/udagram-api-feed:v9d
             docker push zolateklu/udagram-api-user:v9d
             docker push zolateklu/udagram-frontend:v9d
-            docker push zolateklu/udagram-reverseproxy:v9d
+            docker push zolateklu/udagram-reverseproxy:v10d
 workflows:
   default:
     jobs:
