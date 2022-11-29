@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: backend-user
   labels:
-    service: backend-user
     app: backend-user
 spec:
   replicas: 1
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-user
-        image: zolateklu/udagram-api-user:v10d
+        image: zolateklu/udagram-api-user:v11d
         imagePullPolicy: Always
         resources: 
           requests:
